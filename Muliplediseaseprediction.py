@@ -43,7 +43,7 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 tab1, tab2 = st.tabs(["Diabetes Prediction","Heart Disease Prediction"])
 
 with tab1:
-   import base64
+    import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
             encoded_string = base64.b64encode(image_file.read())
