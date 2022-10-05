@@ -39,7 +39,7 @@ if (selected == 'Diabetes Prediction'):
     with col2:
         
        img = Image.open("d1.jpg")
-       st.image(img,width=250)
+       st.image(img,width=150)
     import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
@@ -56,7 +56,7 @@ if (selected == 'Diabetes Prediction'):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('ddd.jpg')
+    add_bg_from_local('h4.jpg')
     
     # page title
     st.title('Diabetes Prediction using ML')
@@ -120,7 +120,7 @@ if (selected == 'Heart Disease Prediction'):
     with col2:
         
         img = Image.open("h6.jpg")
-        st.image(img,width=250)
+        st.image(img,width=150)
     #for adding Image
     import base64
     def add_bg_from_local(image_file):
