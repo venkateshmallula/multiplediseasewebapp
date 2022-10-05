@@ -56,7 +56,7 @@ if (selected == 'Diabetes Prediction'):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('2.jpg')
+    add_bg_from_local('3.jpg')
     
     # page title
     st.title('Diabetes Prediction using ML')
