@@ -118,7 +118,7 @@ if (selected == 'Heart Disease Prediction'):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('h6.jpg')
+    add_bg_from_local('h5.jpg')
     
     # page title
     st.title('Heart Disease Prediction using ML')
@@ -162,7 +162,7 @@ if (selected == 'Heart Disease Prediction'):
         ca = st.text_input('Major vessels colored by flourosopy')
         
     with col1:
-        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
+        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; reversable defect = 2')
         
         
      
