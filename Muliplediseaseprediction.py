@@ -40,20 +40,10 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 
 
 # sidebar for navigation
-tab1, tab2 = st.tabs(["Heart Disease Prediction", "Diabetes Prediction"])
+tab1, tab2 = st.tabs(["Diabetes Prediction","Heart Disease Prediction"])
 
 with tab1:
-   selected='Heart Disease Prediction'
-
-with tab2:
-   selected= 'Diabetes Prediction'
-    
-    
-# Diabetes Prediction Page
-if (selected == 'Diabetes Prediction'):
-    
-    #for adding Image
-    import base64
+   import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
             encoded_string = base64.b64encode(image_file.read())
@@ -120,9 +110,7 @@ if (selected == 'Diabetes Prediction'):
 
 
 
-
-# Heart Disease Prediction Page
-if (selected == 'Heart Disease Prediction'):
+with tab2:
     
     # page title
     st.title('Heart Disease Prediction using ML')
