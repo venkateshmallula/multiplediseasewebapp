@@ -26,16 +26,8 @@ with st.sidebar:
                           
                           options=['Diabetes Prediction','Heart Disease Prediction'],
                           icons=['droplet-half','heart'],
-                          default_index=0,
-                          orientation= "horizontal",
-                           styles={
-                               "container": {"padding": "0!important", "background-color": "#fafafa"},
-                               "icon": {"color": "orange", "font-size": "25px"}, 
-                               "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-                               "nav-link-selected": {"background-color": "green"},
-                               }
-                               )
-    
+                          default_index=0)
+                          
     
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
