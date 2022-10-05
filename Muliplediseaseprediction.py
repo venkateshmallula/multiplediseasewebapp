@@ -20,13 +20,11 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 
 
 # sidebar for navigation# sidebar for navigation
-with st.sidebar:
-    
-    selected = option_menu(menu_title='Main Menu',
-                          
-                          options=['Diabetes Prediction','Heart Disease Prediction'],
-                          icons=['droplet-half','heart'],
-                          default_index=0)
+selected = option_menu(menu_title='Main Menu',
+                       options=['Diabetes Prediction','Heart Disease Prediction'],
+                       icons=['droplet-half','heart'],
+                       default_index=0,
+                       orientation='horizontal')
                           
     
 # Diabetes Prediction Page
