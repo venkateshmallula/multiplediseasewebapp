@@ -27,7 +27,8 @@ with st.sidebar:
                           ['Diabetes Prediction',
                            'Heart Disease Prediction'],
                           icons=['activity','heart'],
-                          default_index=0)
+                          default_index=0,
+                          orientation= "horizontal")
     
     
 # Diabetes Prediction Page
