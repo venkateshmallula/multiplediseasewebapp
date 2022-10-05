@@ -40,7 +40,7 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 
 
 # sidebar for navigation
-tab1, tab2 = st.tabs(["Diabetes Prediction","Heart Disease Prediction"])
+tab1, tab2 = st.tabs(["Diabetes","Heart"])
 
 with tab1:
     import base64
