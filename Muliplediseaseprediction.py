@@ -28,7 +28,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local('h2.jpg')
+add_bg_from_local('diabetes.jpg')
 
 
 # loading the saved models
