@@ -56,7 +56,7 @@ if (selected == 'Diabetes Prediction'):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('d.jpg')
+    add_bg_from_local('diabetes.jpg')
     
     # page title
     st.title('Diabetes Prediction using ML')
@@ -138,7 +138,7 @@ if (selected == 'Heart Disease Prediction'):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('h2.jpg')
+    add_bg_from_local('h1.jpg')
     
     # page title
     st.title('Heart Disease Prediction using ML')
