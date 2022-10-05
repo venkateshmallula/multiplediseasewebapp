@@ -118,7 +118,7 @@ if (selected == 'Heart Disease Prediction'):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('h16.jpg')
+    add_bg_from_local('h6.jpg')
     
     # page title
     st.title('Heart Disease Prediction using ML')
