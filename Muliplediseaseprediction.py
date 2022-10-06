@@ -40,6 +40,9 @@ if (selected == 'Diabetes Prediction'):
         
        img = Image.open("d1.jpg")
        st.image(img,width=150)
+    with col3:
+        
+        st.write("")
     import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
@@ -121,6 +124,9 @@ if (selected == 'Heart Disease Prediction'):
         
         img = Image.open("h6.jpg")
         st.image(img,width=150)
+    with col3:
+        
+        st.write("")
     #for adding Image
     import base64
     def add_bg_from_local(image_file):
