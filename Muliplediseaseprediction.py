@@ -24,7 +24,7 @@ parkinson_model = pickle.load(open('parkinsons_model.sav','rb'))
 # sidebar for navigation# sidebar for navigation
 selected = option_menu(menu_title='Multiple Disease Prediction Web App',
                        options=['Diabetes Prediction','Heart Disease Prediction','Parkinsons Disease Prediction'],
-                       icons=['droplet-half','heart'],
+                       icons=['activity','heart','person'],
                        default_index=0,
                        orientation='horizontal')
                           
