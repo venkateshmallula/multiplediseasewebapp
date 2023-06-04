@@ -212,6 +212,37 @@ if (selected == 'Heart Disease Prediction'):
                                 
   # Parkinson's Prediction Page
 if (selected == "Parkinsons Prediction"):
+  
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        
+        st.write("")
+
+    with col2:
+        
+       img = Image.open("p1.jpg")
+       st.image(img,width=150)
+    with col3:
+        
+        st.write("")
+    import base64
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+            st.markdown(
+            f"""
+            <style>
+            .stApp {{
+            background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
+            background-size: cover;
+            text-color: black;
+            }}
+            </style>
+            """,
+            unsafe_allow_html=True
+            )
+    add_bg_from_local('p2.jpg')
     
     # page title
     st.title("Parkinson's Disease Prediction using ML")
