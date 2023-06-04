@@ -23,7 +23,7 @@ parkinson_model = pickle.load(open('parkinsons_model.sav','rb'))
 
 # sidebar for navigation# sidebar for navigation
 selected = option_menu(menu_title='Multiple Disease Prediction Web App',
-                       options=['Diabetes Prediction','Heart Disease Prediction','Parkinsons Disease Prediction'],
+                       options=['Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction'],
                        icons=['activity','heart','person'],
                        default_index=0,
                        orientation='horizontal')
@@ -211,7 +211,7 @@ if (selected == 'Heart Disease Prediction'):
     st.success(heart_diagnosis)
                                 
   # Parkinson's Prediction Page
-if (selected == "Parkinsons Disease Prediction"):
+if (selected == "Parkinsons Prediction"):
     
     # page title
     st.title("Parkinson's Disease Prediction using ML")
