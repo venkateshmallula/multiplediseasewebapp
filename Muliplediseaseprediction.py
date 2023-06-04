@@ -242,7 +242,7 @@ if (selected == "Parkinsons Prediction"):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('p6.jpg')
+    add_bg_from_local('p4.jpg')
     
     # page title
     st.title("Parkinson's Disease Prediction using ML")
