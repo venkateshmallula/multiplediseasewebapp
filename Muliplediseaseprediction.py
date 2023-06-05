@@ -386,7 +386,7 @@ if (selected == "Breast Cancer Prediction"):
         MSY = st.text_input('Mean symmetry')
         
     with col5:
-        MFD = st.text_input('Mean fractal dimension')
+        MFD = st.text_input('Mean fractal')
         
     with col1:
         RE = st.text_input('Radius error')
@@ -416,7 +416,7 @@ if (selected == "Breast Cancer Prediction"):
         SYE = st.text_input('Symmetry error')
         
     with col5:
-        FDE = st.text_input('Fractal dimension error')
+        FDE = st.text_input('Fractal  error')
         
     with col1:
         WR = st.text_input('Worst radius')
@@ -446,7 +446,7 @@ if (selected == "Breast Cancer Prediction"):
         WSY = st.text_input('Worst symmetry')
         
     with col5:
-        WFD = st.text_input('Worst fractal dimension')
+        WFD = st.text_input('Worst fractal')
         
     
     
