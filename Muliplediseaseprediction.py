@@ -440,7 +440,7 @@ if (selected == "Breast Cancer Prediction"):
     with col3:
         WP = st.text_input('Worst perimeter')
                               
-     with col4:
+    with col4:
         WA = st.text_input('Worst area')
         
     with col5:
@@ -455,7 +455,7 @@ if (selected == "Breast Cancer Prediction"):
     with col3:
         WCP = st.text_input('Worst concave points')
                               
-     with col4:
+    with col4:
         WSY = st.text_input('Worst symmetry')
         
     with col5:
