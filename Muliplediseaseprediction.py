@@ -19,7 +19,7 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 
 parkinsons_model = pickle.load(open('parkinsons_model.sav','rb'))
 
-breast_cancer_model = pickle.load(open('breast_cancer_model.sav','rb))
+breast_cancer_model = pickle.load(open('breast_cancer_model.sav','rb'))
 
 
 # sidebar for navigation# sidebar for navigation
