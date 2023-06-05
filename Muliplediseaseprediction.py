@@ -23,8 +23,8 @@ breast_cancer_model = pickle.load(open('breast_cancer_model','rb'))
 
 # sidebar for navigation# sidebar for navigation
 selected = option_menu(menu_title='Multiple Disease Prediction Web App',
-                       options=['Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction','Breast Cancer Prediction],
-                       icons=['activity','heart','person','Gender female],
+                       options=['Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction','Breast Cancer Prediction'],
+                       icons=['activity','heart','person','Gender female'],
                        default_index=0,
                        orientation='horizontal')
                           
