@@ -19,7 +19,7 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 
 parkinsons_model = pickle.load(open('parkinsons_model.sav','rb'))
 
-breast_cancer_model = pickle.load(open('breast_cancer_model','rb'))
+breast_cancer_model = pickle.load(open('breast_cancer_model.sav','rb'))
 
 # sidebar for navigation# sidebar for navigation
 selected = option_menu(menu_title='Multiple Disease Prediction Web App',
