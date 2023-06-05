@@ -335,20 +335,6 @@ if (selected == "Parkinsons Prediction"):
      
   # Breast cancer Prediction Page
 if (selected == "Breast Cancer Prediction"):
-  
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        
-        st.write("")
-
-    with col2:
-        
-       img = Image.open("p1.jpg")
-       st.image(img,width=150)
-    with col3:
-        
-        st.write("")
     import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
@@ -365,7 +351,7 @@ if (selected == "Breast Cancer Prediction"):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('p4.jpg')
+    add_bg_from_local('b1.jpg')
     
     # page title
     st.title("Breast Cancer Prediction using ML")
