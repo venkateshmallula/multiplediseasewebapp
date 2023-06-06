@@ -567,7 +567,7 @@ if (selected == "Kidney Disease Prediction"):
     
     # creating a button for Prediction    
     if st.button("Kidney Disease Test Result"):
-        Kidney_Disease_Prediction = kidney_disease_model.predict([[age,bp,sg,al,su,rbc,pc,pcc,ba,bgr,bu,sc,sod,pot,hemo,pcv,wc,rc,htnmdm,cad,appet,pe,ane]])                          
+        Kidney_Disease_Prediction = kidney_disease_model.predict([[age,bp,sg,al,su,rbc,pc,pcc,ba,bgr,bu,sc,sod,pot,hemo,pcv,wc,rc,htn,dm,cad,appet,pe,ane]])                          
         
         if (Kidney_Disease_Prediction[0] == 0):
           kidney_disease_diagnosis = "kidneys are not Infected"
