@@ -516,7 +516,7 @@ if (selected == "Kidney Disease Prediction"):
         ba = st.text_input('Bacteria')
         
     with col4:
-        bgr = st.text_input('Blood glucose random')
+        bgr = st.text_input('Blood glucose')
         
     with col5:
         bu = st.text_input('Blood urea')
@@ -537,10 +537,10 @@ if (selected == "Kidney Disease Prediction"):
         pcv = st.text_input('Packed cell volume')
         
     with col1:
-        wc = st.text_input('White blood cell count')
+        wc = st.text_input('White blood cells')
         
     with col2:
-        rc = st.text_input('Red blood cell count')
+        rc = st.text_input('Red blood cells')
         
     with col3:
         htn = st.text_input('Hypertension')
@@ -549,7 +549,7 @@ if (selected == "Kidney Disease Prediction"):
         dm = st.text_input('Diabetes mellitus')
                               
     with col5:
-        cad = st.text_input('Coronary artery disease')
+        cad = st.text_input('Coronary artery')
         
     with col1:
         appet = st.text_input('Appetite')
