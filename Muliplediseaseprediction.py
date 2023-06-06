@@ -540,7 +540,7 @@ if (selected == "Kidney Disease Prediction"):
         wc = st.text_input('White blood cells')
         
     with col2:
-        rc = st.text_input('Red blood cells')
+        rc = st.text_input('Red blood cells count')
         
     with col3:
         htn = st.text_input('Hypertension')
