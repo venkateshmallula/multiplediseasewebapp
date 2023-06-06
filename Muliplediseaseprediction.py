@@ -503,52 +503,52 @@ if (selected == "Kidney Disease Prediction"):
     with col4:
         su = st.text_input('Sugar')
         
-    with col1:
+    with col5:
         rbc = st.text_input('Red blood cells')
         
-    with col2:
+    with col1:
         pc = st.text_input('Pus cells')
         
-    with col3:
+    with col2:
         pcc = st.text_input('Pus cells clumps')
         
-    with col4:
+    with col3:
         ba = st.text_input('Bacteria')
         
-    with col1:
+    with col4:
         bgr = st.text_input('Blood glucose random')
         
-    with col2:
+    with col5:
         bu = st.text_input('Blood urea')
         
-    with col3:
+    with col1:
         sc = st.text_input('Serum creatinine')
         
-    with col4:
+    with col2:
         sod = st.text_input('Sodium')
         
-    with col1:
+    with col3:
         pot = st.text_input('Potassiumr')
         
-    with col2:
+    with col4:
         hemo = st.text_input('Hemoglobin')
         
-    with col3:
+    with col5:
         pcv = st.text_input('Packed cell volume')
         
-    with col4:
+    with col1:
         wc = st.text_input('White blood cell count')
         
-    with col1:
+    with col2:
         rc = st.text_input('Red blood cell count')
         
-    with col2:
+    with col3:
         htn = st.text_input('Hypertension')
                               
-    with col3:
+    with col4:
         dm = st.text_input('Diabetes mellitus')
                               
-    with col4:
+    with col5:
         cad = st.text_input('Coronary artery disease')
         
     with col1:
