@@ -498,66 +498,69 @@ if (selected == "Kidney Disease Prediction"):
         bp = st.text_input('Blood pressure')
         
     with col3:
+        sg = st.text_input('Specific gravity')
+        
+    with col4:
         al = st.text_input('Albumin')
         
-    with col4:
+    with col5:
         su = st.text_input('Sugar')
         
-    with col5:
+    with col1:
         rbc = st.text_input('Red blood cells')
         
-    with col1:
+    with col2:
         pc = st.text_input('Pus cells')
         
-    with col2:
+    with col3:
         pcc = st.text_input('Pus cells clumps')
         
-    with col3:
+    with col4:
         ba = st.text_input('Bacteria')
         
-    with col4:
+    with col5:
         bgr = st.text_input('Blood glucose')
         
-    with col5:
+    with col1:
         bu = st.text_input('Blood urea')
         
-    with col1:
+    with col2:
         sc = st.text_input('Serum creatinine')
         
-    with col2:
+    with col3:
         sod = st.text_input('Sodium')
         
-    with col3:
+    with col4:
         pot = st.text_input('Potassiumr')
         
-    with col4:
+    with col5:
         hemo = st.text_input('Hemoglobin')
         
-    with col5:
+    with col1:
         pcv = st.text_input('Packed cell volume')
         
-    with col1:
+    with col2:
         wc = st.text_input('White blood cells')
         
-    with col2:
+    with col3:
         rc = st.text_input('Red blood cells count')
         
-    with col3:
+    with col4:
         htn = st.text_input('Hypertension')
                               
-    with col4:
+    with col5:
         dm = st.text_input('Diabetes mellitus')
                               
-    with col5:
+    with col1:
         cad = st.text_input('Coronary artery')
         
-    with col1:
+    with col2:
         appet = st.text_input('Appetite')
         
-    with col2:
+    with col3:
         pe = st.text_input('Pedal edema')
                               
-    with col3:
+    with col4:
         ane = st.text_input('Anemia')
         
     
