@@ -27,7 +27,7 @@ kidney_disease_model = pickle.load(open('kidney_disease_model.sav','rb'))
 # sidebar for navigation# sidebar for navigation
 selected = option_menu(menu_title='Multiple Disease Prediction Web App',
                        options=['Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction','Breast Cancer Prediction','Kidney Disease Prediction'],
-                       icons=['activity','heart-pulse','person','gender-female','droplet'],
+                       icons=['activity','heart','person','gender-female','droplet'],
                        default_index=0,
                        orientation='horizontal')
                           
@@ -465,4 +465,114 @@ if (selected == "Breast Cancer Prediction"):
           breast_cancer_diagnosis = "The tumor is Benign"
         
     st.success(breast_cancer_diagnosis)
+    
+  # Kidney disease Prediction Page
+if (selected == "Kidney Disease Prediction"):
+    import base64
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+            st.markdown(
+            f"""
+            <style>
+            .stApp {{
+            background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
+            background-size: cover;
+            text-color: black;
+            }}
+            </style>
+            """,
+            unsafe_allow_html=True
+            )
+    add_bg_from_local('b1.jpg')
+    
+    # page title
+    st.title("Kidney Disease Prediction using ML")
+    
+    col1, col2, col3, col4, col5 = st.columns(5)  
+    
+    with col1:
+        age = st.text_input('Age')
+        
+    with col2:
+        bp = st.text_input('Blood pressure')
+        
+    with col3:
+        al = st.text_input('Albumin')
+        
+    with col4:
+        su = st.text_input('Sugar')
+        
+    with col1:
+        rbc = st.text_input('Red blood cells')
+        
+    with col2:
+        pc = st.text_input('Pus cells')
+        
+    with col3:
+        pcc = st.text_input('Pus cells clumps')
+        
+    with col4:
+        ba = st.text_input('Bacteria')
+        
+    with col1:
+        bgr = st.text_input('Blood glucose random')
+        
+    with col2:
+        bu = st.text_input('Blood urea')
+        
+    with col3:
+        sc = st.text_input('Serum creatinine')
+        
+    with col4:
+        sod = st.text_input('Sodium')
+        
+    with col1:
+        pot = st.text_input('Potassiumr')
+        
+    with col2:
+        hemo = st.text_input('Hemoglobin')
+        
+    with col3:
+        pcv = st.text_input('Packed cell volume')
+        
+    with col4:
+        wc = st.text_input('White blood cell count')
+        
+    with col1:
+        rc = st.text_input('Red blood cell count')
+        
+    with col2:
+        htn = st.text_input('Hypertension')
+                              
+    with col3:
+        dm = st.text_input('Diabetes mellitus')
+                              
+    with col4:
+        cad = st.text_input('Coronary artery disease')
+        
+    with col1:
+        appet = st.text_input('Appetite')
+        
+    with col2:
+        pe = st.text_input('Pedal edema')
+                              
+    with col3:
+        ane = st.text_input('Anemia')
+        
+    
+    
+    # code for Prediction
+    kidney_disease_diagnosis = ''
+    
+    # creating a button for Prediction    
+    if st.button("Kidney Disease Test Result"):
+        Kidney_Disease_Prediction = kidney_disease_model.predict([[age,bp,sg,al,su,rbc,pc,pcc,ba,bgr,bu,sc,sod,pot,hemo,pcv,wc,rc,htnmdm,cad,appet,pe,ane]])                          
+        
+        if (Kidney_Disease_Prediction[0] == 0):
+          kidney_disease_diagnosis = "kidneys are not Infected"
+        else:
+          kidney_disease_diagnosis = "kidneys are Infected"
+        
+    st.success(kidney_disease_diagnosis)
 
