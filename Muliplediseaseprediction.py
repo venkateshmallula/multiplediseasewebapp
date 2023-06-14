@@ -361,94 +361,94 @@ if (selected == "Breast Cancer Prediction"):
     col1, col2, col3, col4, col5 = st.columns(5)  
     
     with col1:
-        MR = st.text_input('Mean radius')
+        MR = st.number_input('Mean radius')
         
     with col2:
-        MT = st.text_input('Mean texture')
+        MT = st.number_input('Mean texture')
         
     with col3:
-        MP = st.text_input('Mean perimeter')
+        MP = st.number_input('Mean perimeter')
         
     with col4:
-        MA = st.text_input('Mean area')
+        MA = st.number_input('Mean area')
         
     with col5:
-        MS = st.text_input('Mean smoothness')
+        MS = st.number_input('Mean smoothness')
         
     with col1:
-        MCOM = st.text_input('Mean compactness')
+        MCOM = st.number_input('Mean compactness')
         
     with col2:
-        MCON = st.text_input('Mean concavity')
+        MCON = st.number_input('Mean concavity')
         
     with col3:
-        MCP = st.text_input('Mean concave points')
+        MCP = st.number_input('Mean concave points')
         
     with col4:
-        MSY = st.text_input('Mean symmetry')
+        MSY = st.number_input('Mean symmetry')
         
     with col5:
-        MFD = st.text_input('Mean fractal')
+        MFD = st.number_input('Mean fractal')
         
     with col1:
-        RE = st.text_input('Radius error')
+        RE = st.number_input('Radius error')
         
     with col2:
-        TE = st.text_input('Texture error')
+        TE = st.number_input('Texture error')
         
     with col3:
-        PE = st.text_input('Perimeter error')
+        PE = st.number_input('Perimeter error')
         
     with col4:
-        AE = st.text_input('Area error')
+        AE = st.number_input('Area error')
         
     with col5:
-        SE = st.text_input('Smoothness error')
+        SE = st.number_input('Smoothness error')
         
     with col1:
-        COME = st.text_input('Compactness error')
+        COME = st.number_input('Compactness error')
         
     with col2:
-        CONE = st.text_input('Concavity error')
+        CONE = st.number_input('Concavity error')
         
     with col3:
-        CPE = st.text_input('Concave points error')
+        CPE = st.number_input('Concave points error')
         
     with col4:
-        SYE = st.text_input('Symmetry error')
+        SYE = st.number_input('Symmetry error')
         
     with col5:
-        FDE = st.text_input('Fractal  error')
+        FDE = st.number_input('Fractal  error')
         
     with col1:
-        WR = st.text_input('Worst radius')
+        WR = st.number_input('Worst radius')
         
     with col2:
-        WT = st.text_input('Worst texture')
+        WT = st.number_input('Worst texture')
                               
     with col3:
-        WP = st.text_input('Worst perimeter')
+        WP = st.number_input('Worst perimeter')
                               
     with col4:
-        WA = st.text_input('Worst area')
+        WA = st.number_input('Worst area')
         
     with col5:
-        WS = st.text_input('Worst smoothness')
+        WS = st.number_input('Worst smoothness')
                               
     with col1:
-        WCOM = st.text_input('Worst compactness')
+        WCOM = st.number_input('Worst compactness')
         
     with col2:
-        WCON = st.text_input('Worst concavity')
+        WCON = st.number_input('Worst concavity')
                               
     with col3:
-        WCP = st.text_input('Worst concave points')
+        WCP = st.number_input('Worst concave points')
                               
     with col4:
-        WSY = st.text_input('Worst symmetry')
+        WSY = st.number_input('Worst symmetry')
         
     with col5:
-        WFD = st.text_input('Worst fractal')
+        WFD = st.number_input('Worst fractal')
         
     
     
