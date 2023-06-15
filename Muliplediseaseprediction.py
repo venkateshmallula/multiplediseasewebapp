@@ -413,6 +413,15 @@ if (selected == "Breast Cancer Prediction"):
 
     # Set the page title
     st.title("Breast Cancer Prediction using Machine Learning")
+    html_temp = """
+    <div style ="background-color:yellow;padding:13px">
+    <h1 style ="color:black;text-align:center;">Streamlit Breast Cancer Prediction ML App </h1>
+    </div>
+    """
+      
+    # this line allows us to display the front end aspects we have 
+    # defined in the above code
+    st.markdown(html_temp, unsafe_allow_html = True)
 
     input_value = st.text_input("Enter the features separated by ','")
 
