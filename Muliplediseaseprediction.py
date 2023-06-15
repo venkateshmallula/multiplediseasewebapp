@@ -26,12 +26,20 @@ kidney_disease_model = pickle.load(open('kidney_disease_model.sav','rb'))
 
 # sidebar for navigation# sidebar for navigation
 selected = option_menu(menu_title='Multiple Disease Prediction Web App',
-                       options=['Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction','Breast Cancer Prediction','Kidney Disease Prediction'],
-                       icons=['activity','heart','person','gender-female','droplet'],
+                       options=['Home','Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction','Breast Cancer Prediction','Kidney Disease Prediction'],
+                       icons=['house','activity','heart','person','gender-female','droplet'],
                        default_index=0,
                        orientation='horizontal')
                           
-    
+if (selected == 'Home'):
+  st.title("Multiple Disease Prediction using Machine Learning and Streamlit")
+    html_temp = """
+    <div style ="background-color:yellow;padding:13px">
+    <h1 style ="color:black;text-align:center;">Multiple Disease Prediction Web App </h1>
+    </div>
+    """
+  
+  
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
     
