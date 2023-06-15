@@ -466,23 +466,23 @@ if (selected == "Breast Cancer Prediction"):
     
   # Kidney disease Prediction Page
 if (selected == "Kidney Disease Prediction"):
-    import base64
-    def add_bg_from_local(image_file):
-        with open(image_file, "rb") as image_file:
-            encoded_string = base64.b64encode(image_file.read())
-            st.markdown(
-            f"""
-            <style>
-            .stApp {{
-            background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
-            background-size: cover;
-            text-color: black;
-            }}
-            </style>
-            """,
-            unsafe_allow_html=True
-            )
-    add_bg_from_local('b1.jpg')
+        import base64
+        def add_bg_from_local(image_file):
+            with open(image_file, "rb") as image_file:
+                encoded_string = base64.b64encode(image_file.read())
+                st.markdown(
+                f"""
+                <style>
+                .stApp {{
+                background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
+                background-size: cover;
+                text-color: black;
+                }}
+                </style>
+                """,
+                unsafe_allow_html=True
+                )
+        add_bg_from_local('b1.jpg')
     
     # page title
         import numpy as np
