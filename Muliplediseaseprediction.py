@@ -358,113 +358,93 @@ if (selected == "Breast Cancer Prediction"):
     # page title
     st.title("Breast Cancer Prediction using ML")
     
-    col1, col2, col3, col4, col5 = st.columns(5)  
-    
-    with col1:
-        MR = st.number_input('Mean radius')
-        
-    with col2:
-        MT = st.number_input('Mean texture')
-        
-    with col3:
-        MP = st.number_input('Mean perimeter')
-        
-    with col4:
-        MA = st.number_input('Mean area')
-        
-    with col5:
-        MS = st.number_input('Mean smoothness')
-        
-    with col1:
-        MCOM = st.number_input('Mean compactness')
-        
-    with col2:
-        MCON = st.number_input('Mean concavity')
-        
-    with col3:
-        MCP = st.number_input('Mean concave points')
-        
-    with col4:
-        MSY = st.number_input('Mean symmetry')
-        
-    with col5:
-        MFD = st.number_input('Mean fractal')
-        
-    with col1:
-        RE = st.number_input('Radius error')
-        
-    with col2:
-        TE = st.number_input('Texture error')
-        
-    with col3:
-        PE = st.number_input('Perimeter error')
-        
-    with col4:
-        AE = st.number_input('Area error')
-        
-    with col5:
-        SE = st.number_input('Smoothness error')
-        
-    with col1:
-        COME = st.number_input('Compactness error')
-        
-    with col2:
-        CONE = st.number_input('Concavity error')
-        
-    with col3:
-        CPE = st.number_input('Concave points error')
-        
-    with col4:
-        SYE = st.number_input('Symmetry error')
-        
-    with col5:
-        FDE = st.number_input('Fractal  error')
-        
-    with col1:
-        WR = st.number_input('Worst radius')
-        
-    with col2:
-        WT = st.number_input('Worst texture')
-                              
-    with col3:
-        WP = st.number_input('Worst perimeter')
-                              
-    with col4:
-        WA = st.number_input('Worst area')
-        
-    with col5:
-        WS = st.number_input('Worst smoothness')
-                              
-    with col1:
-        WCOM = st.number_input('Worst compactness')
-        
-    with col2:
-        WCON = st.number_input('Worst concavity')
-                              
-    with col3:
-        WCP = st.number_input('Worst concave points')
-                              
-    with col4:
-        WSY = st.number_input('Worst symmetry')
-        
-    with col5:
-        WFD = st.number_input('Worst fractal')
-        
-    
-    
-    # code for Prediction
-    breast_cancer_diagnosis = ''
-    
-    # creating a button for Prediction    
-    if st.button("Breast Cancer Test Result"):
-        breast_cancer_prediction = breast_cancer_model.predict([[MR,MT,MP,MA,MS,MCOM,MCON,MCP,MSY,MFD,RE,TE,PE,AE,SE,COME,CONE,CPE,SYE,FDE,WR,WT,WP,WA,WS,WCOM,WCON,WCP,WSY,WFD]])                          
-        
-        if (breast_cancer_prediction[0] == 0):
-          breast_cancer_diagnosis = "The tumor is Malignant"
-        else:
-          breast_cancer_diagnosis = "The tumor is Benign"
-        
-    st.success(breast_cancer_diagnosis)
+    import numpy as np
+    import pandas as pd
+    import sklearn.datasets
+    from sklearn.model_selection import train_test_split
+    import tensorflow as tf
+    tf.random.set_seed(3)
+    from tensorflow import keras
+    import streamlit as st
+
+    # loading the data from sklearn
+    breast_cancer_dataset = sklearn.datasets.load_breast_cancer()
+
+    # loading the data to a data frame
+    data_frame = pd.DataFrame(breast_cancer_dataset.data, columns = breast_cancer_dataset.feature_names)
+
+    # adding the 'target' column to the data frame
+    data_frame['label'] = breast_cancer_dataset.target
+
+    X = data_frame.drop(columns='label', axis=1)
+    Y = data_frame['label']
+
+    #splitting the data
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=2)
+
+    #Standardize the data
+    from sklearn.preprocessing import StandardScaler
+    scaler = StandardScaler()
+    X_train_std = scaler.fit_transform(X_train)
+    X_test_std = scaler.transform(X_test)
+
+    # importing tensorflow and Keras
+    import tensorflow as tf
+    tf.random.set_seed(3)
+    from tensorflow import keras
+    # setting up the layers of Neural Network
+
+    model = keras.Sequential([
+                          keras.layers.Flatten(input_shape=(30,)),
+                          keras.layers.Dense(20, activation='relu'),
+                          keras.layers.Dense(2, activation='sigmoid')
+    ])
+    # compiling the Neural Network
+
+    model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+    # training the neural Network
+
+    history = model.fit(X_train_std, Y_train, validation_split=0.1, epochs=10)
+    loss, accuracy = model.evaluate(X_test_std, Y_test)
+
+    Y_pred = model.predict(X_test_std)
+
+    # Set the page title
+    st.title("Breast Cancer Prediction using Machine Learning")
+
+    input_value = st.text_input("Enter the features separated by ','")
+
+    input_list = input_value.split(',')
+    # Create a button for prediction
+    if st.button("Predict"):
+      try:
+             input_data = np.array([input_list], dtype=np.float32)
+             st.write(input_data)
+
+             # change the input_data to a numpy array
+             input_data_as_numpy_array = np.asarray(input_data)
+
+             # reshape the numpy array as we are predicting for one data point
+             input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+
+             # standardizing the input data
+             input_data_std = scaler.transform(input_data_reshaped)
+
+             prediction = model.predict(input_data_std)
+
+             prediction_label = [np.argmax(prediction)]
+
+             if(prediction_label[0] == 0):
+                   st.write('The tumor is Malignant')
+
+             else:
+                   st.write('The tumor is Benign')
+      except ValueError:
+                 st.error("Invalid input. Please enter numeric values for all features.")
+
+
     
   # Kidney disease Prediction Page
 if (selected == "Kidney Disease Prediction"):
