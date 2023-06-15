@@ -354,10 +354,7 @@ if (selected == "Breast Cancer Prediction"):
             unsafe_allow_html=True
             )
     add_bg_from_local('b1.jpg')
-    
-    # page title
-    st.title("Breast Cancer Prediction using ML")
-    
+    ########################################
     import numpy as np
     import pandas as pd
     import sklearn.datasets
@@ -422,9 +419,9 @@ if (selected == "Breast Cancer Prediction"):
     # this line allows us to display the front end aspects we have 
     # defined in the above code
     st.markdown(html_temp, unsafe_allow_html = True)
-    
     features_names = X.columns.tolist()
-    st.write(features_names)
+    if st.button('Show Feaatures'):
+          st.write(features_names)
 
     input_value = st.text_input("Enter the features separated by Comma")
 
