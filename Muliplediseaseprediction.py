@@ -422,8 +422,11 @@ if (selected == "Breast Cancer Prediction"):
     # this line allows us to display the front end aspects we have 
     # defined in the above code
     st.markdown(html_temp, unsafe_allow_html = True)
+    
+    features_names = X[columns].tolist()
+    st.write(features_names)
 
-    input_value = st.text_input("Enter the features separated by ','")
+    input_value = st.text_input("Enter the features separated by Comma")
 
     input_list = input_value.split(',')
     # Create a button for prediction
