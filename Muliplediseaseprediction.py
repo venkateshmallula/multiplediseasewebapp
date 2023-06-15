@@ -33,6 +33,7 @@ selected = option_menu(menu_title='Multiple Disease Prediction Web App',
                           
 if (selected == 'Home'):
   st.title("Multiple Disease Prediction using Machine Learning and Streamlit")
+  
   html_temp = """
   <div style ="background-color:yellow;padding:13px">
   <h1 style ="color:black;text-align:center;">Multiple Disease Prediction Web App </h1>
