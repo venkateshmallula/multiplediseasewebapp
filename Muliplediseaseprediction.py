@@ -455,10 +455,10 @@ if (selected == "Breast Cancer Prediction"):
              prediction_label = [np.argmax(prediction)]
 
              if(prediction_label[0] == 0):
-                   st.write('The tumor is Malignant')
+                   st.success('The tumor is Malignant')
 
              else:
-                   st.write('The tumor is Benign')
+                   st.success('The tumor is Benign')
       except ValueError:
                  st.error("Invalid input. Please enter numeric values for all features.")
 
@@ -485,95 +485,159 @@ if (selected == "Kidney Disease Prediction"):
     add_bg_from_local('b1.jpg')
     
     # page title
-    st.title("Kidney Disease Prediction using ML")
-    
-    col1, col2, col3, col4, col5 = st.columns(5)  
-    
-    with col1:
-        age = st.text_input('Age')
+        import numpy as np
+        import pandas as pd
+        import os, sys
+        from sklearn.preprocessing import MinMaxScaler
+        from sklearn.model_selection import train_test_split
+        from sklearn.metrics import accuracy_score
+        # loading the dataset
+        data = pd.read_csv('kidney_disease.csv')
         
-    with col2:
-        bp = st.text_input('Blood pressure')
+        #imputing null values
+        from sklearn.impute import SimpleImputer
+        imp_mode = SimpleImputer(missing_values=np.nan, strategy="most_frequent")
         
-    with col3:
-        sg = st.text_input('Specific gravity')
+        df_imputed = pd.DataFrame(imp_mode.fit_transform(data))
+        df_imputed.columns=data.columns
         
-    with col4:
-        al = st.text_input('Albumin')
         
-    with col5:
-        su = st.text_input('Sugar')
         
-    with col1:
-        rbc = st.text_input('Red blood cells')
+        df_imputed['classification']=df_imputed['classification'].apply(lambda x: 'ckd' if x=='ckd\t' else x)
         
-    with col2:
-        pc = st.text_input('Pus cells')
+        df_imputed['cad']=df_imputed['cad'].apply(lambda x: 'no' if x=='\tno' else x)
         
-    with col3:
-        pcc = st.text_input('Pus cells clumps')
+        df_imputed['dm']=df_imputed['dm'].apply(lambda x: 'no' if x=='\tno' else x)
+        df_imputed['dm']=df_imputed['dm'].apply(lambda x: 'yes' if x=='\tyes' else x)
+        df_imputed['dm']=df_imputed['dm'].apply(lambda x: 'yes' if x==' yes' else x)
         
-    with col4:
-        ba = st.text_input('Bacteria')
+        df_imputed['rc']=df_imputed['rc'].apply(lambda x: '5.2' if x=='\t?' else x)
         
-    with col5:
-        bgr = st.text_input('Blood glucose')
+        df_imputed['wc']=df_imputed['wc'].apply(lambda x: '9800' if x=='\6200?' else x)
+        df_imputed['wc']=df_imputed['wc'].apply(lambda x: '9800' if x=='\8400' else x)
+        df_imputed['wc']=df_imputed['wc'].apply(lambda x: '9800' if x=='\t?' else x)
         
-    with col1:
-        bu = st.text_input('Blood urea')
+        df_imputed['pcv']=df_imputed['pcv'].apply(lambda x: '41' if x=='\t43' else x)
+        df_imputed['pcv']=df_imputed['pcv'].apply(lambda x: '41' if x=='\t?' else x)
         
-    with col2:
-        sc = st.text_input('Serum creatinine')
+        temp=df_imputed ["classification"].value_counts()
         
-    with col3:
-        sod = st.text_input('Sodium')
+        for i in data.select_dtypes (exclude=["object"]).columns:
+          df_imputed[i]=df_imputed[i].apply(lambda x: float(x))
         
-    with col4:
-        pot = st.text_input('Potassiumr')
+        # Label encoding to convert categorical values to numerical
+        from sklearn import preprocessing
+        df_enco=df_imputed.apply(preprocessing.LabelEncoder().fit_transform)
         
-    with col5:
-        hemo = st.text_input('Hemoglobin')
+        # Lets make some final changes to the data
+        # Seperate independent and dependent variables and drop the ID column
+        x=df_enco.drop(["id","classification"],axis=1)
+        y=df_enco["classification"]
         
-    with col1:
-        pcv = st.text_input('Packed cell volume')
+        # Lets detect the Label balance
+        from imblearn.over_sampling import RandomOverSampler
+        from imblearn.under_sampling import RandomUnderSampler
+        from collections import Counter
         
-    with col2:
-        wc = st.text_input('White blood cells')
+        # Lets balance the Labels
+        ros= RandomOverSampler()
+        x_ros, y_ros = ros.fit_resample(x, y)
         
-    with col3:
-        rc = st.text_input('Red blood cells count')
+        #Initialize a MinMaxScaler and scale the features to between 1 and 1 to normalize them.
+        #The MinMaxScaler transforms features by scaling them to a given range.
+        #The fit_transform() method fits to the data and then transforms it. We don't need to scale the labels.
+        #Scale the features to between -1 and 1
+        # Scaling is important in the algorithms such as support vector machines (SVM) and k-nearest neighbors (KNN) where distance
+        # between the data points is important.
+        scaler = MinMaxScaler ((-1,1))
+        x=scaler.fit_transform(x_ros)
+        y=y_ros
         
-    with col4:
-        htn = st.text_input('Hypertension')
-                              
-    with col5:
-        dm = st.text_input('Diabetes mellitus')
-                              
-    with col1:
-        cad = st.text_input('Coronary artery')
+        # Applying PCA
+        # The code below has .95 for the number of components parameter.
+        # It means that scikit-Learn choose the minimum number of principal components such that 95% of the variance is retained.
+        from sklearn.decomposition import PCA
+        pca = PCA(.95)
+        X_PCA=pca.fit_transform(x)
         
-    with col2:
-        appet = st.text_input('Appetite')
+        #Split the dataset
+        from sklearn.model_selection import train_test_split
+        x_train,x_test,y_train,y_test=train_test_split(X_PCA, y, test_size=0.2, random_state=7)
         
-    with col3:
-        pe = st.text_input('Pedal edema')
-                              
-    with col4:
-        ane = st.text_input('Anemia')
+        # importing tensorflow and Keras
+        import tensorflow as tf 
+        tf.random.set_seed(3)
+        from tensorflow import keras
         
-    
-    
-    # code for Prediction
-    kidney_disease_diagnosis = ''
-    
-    # creating a button for Prediction    
-    if st.button("Kidney Disease Test Result"):
-        Kidney_Disease_Prediction = kidney_disease_model.predict([[age,bp,sg,al,su,rbc,pc,pcc,ba,bgr,bu,sc,sod,pot,hemo,pcv,wc,rc,htn,dm,cad,appet,pe,ane]])                          
+        # setting up the layers of Neural Network
         
-        if (Kidney_Disease_Prediction[0] == 0):
-          kidney_disease_diagnosis = "kidneys are not Infected"
-        else:
-          kidney_disease_diagnosis = "kidneys are Infected"
+        model = keras.Sequential([
+                                  keras.layers.Flatten(input_shape=(18,)),
+                                  keras.layers.Dense(9, activation='relu'),
+                                  keras.layers.Dense(2, activation='sigmoid')
+        ])
         
-    st.success(kidney_disease_diagnosis)
+        # compiling the Neural Network
+        model.compile(optimizer='adam',
+                      loss='sparse_categorical_crossentropy',
+                      metrics=['accuracy'])
+        
+        # training the neural Network
+        
+        history = model.fit(x_train, y_train, validation_split=0.1, epochs=20)
+        
+        #Accuracy of the model on test data
+        loss, accuracy = model.evaluate(x_test, y_test)
+        
+        Y_pred = model.predict(x_test)
+        
+        import streamlit as st
+        
+        # Set the page title
+        st.title("Kidney Disease Prediction using Machine Learning")
+        html_temp = """
+        <div style ="background-color:yellow;padding:13px">
+        <h1 style ="color:black;text-align:center;">Streamlit Kidney Disease Prediction ML App </h1>
+        </div>
+        """
+        
+        features_names = ["age","blood pressure","specific gravity","albumin","sugar","red blood cells","pus cell","pus cell clumps","bacteria","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count","hypertension","diabetes mellitus","coronary artery disease","appetite","pedal edema","anemia"]
+        if st.button('Show Feaatures'):
+              st.write(features_names)
+        # this line allows us to display the front end aspects we have 
+        # defined in the above code
+        st.markdown(html_temp, unsafe_allow_html = True)
+        
+        input_value = st.text_input("Enter the features separated by Comma")
+        
+        input_list = input_value.split(',')
+        if st.button("Predict"):
+              try:
+                  input_data = np.array([input_list], dtype=np.float32)
+                
+                  # change the input_data to a numpy array
+                  input_data_as_numpy_array = np.asarray(input_data)
+        
+                  # reshape the numpy array as we are predicting for one data point
+                  input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+        
+                  # standardizing the input data
+                  input_data_std = scaler.transform(input_data_reshaped)
+        
+                  #feature extraction and dimensional reduction
+                  input_data_std_PCA = pca.transform(input_data_std)
+        
+                  prediction = model.predict(input_data_std_PCA)
+                 
+        
+                  prediction_label = [np.argmax(prediction)]
+                 
+        
+                  if(prediction_label[0] == 0):
+                      st.success('kidneys are not Infected')
+        
+                  else:
+                      st.success('kidneys are Infected')
+              except ValueError:
+                         st.error("Invalid input. Please enter numeric values for all features.")
 
