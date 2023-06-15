@@ -38,6 +38,7 @@ if (selected == 'Home'):
   <h1 style ="color:black;text-align:center;">Multiple Disease Prediction Web App </h1>
   </div>
   """
+  st.markdown(html_temp, unsafe_allow_html = True)
   
   
 # Diabetes Prediction Page
