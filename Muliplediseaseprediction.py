@@ -410,6 +410,17 @@ if (selected == "Breast Cancer Prediction"):
     loss, accuracy = model.evaluate(X_test_std, Y_test)
 
     Y_pred = model.predict(X_test_std)
+    
+    # Save the model
+    model.save("model.h5")
+    
+    @st.cache(allow_output_mutation=True)
+    # Load the saved model
+    def Load_model():
+        model = keras.models.load_model('model.h5')
+        return model
+    model = Load_model()
+        
 
     # Set the page title
     st.title("Breast Cancer Prediction using Machine Learning")
