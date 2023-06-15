@@ -423,7 +423,7 @@ if (selected == "Breast Cancer Prediction"):
     # defined in the above code
     st.markdown(html_temp, unsafe_allow_html = True)
     
-    features_names = X[columns].tolist()
+    features_names = X.columns.tolist()
     st.write(features_names)
 
     input_value = st.text_input("Enter the features separated by Comma")
