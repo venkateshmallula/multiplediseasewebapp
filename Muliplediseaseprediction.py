@@ -483,7 +483,7 @@ if (selected == "Kidney Disease Prediction"):
                 """,
                 unsafe_allow_html=True
                 )
-        add_bg_from_local('b1.jpg')
+        add_bg_from_local('kidney-1030x659.jpg')
     
     # page title
         import numpy as np
