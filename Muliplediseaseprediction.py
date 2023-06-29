@@ -385,7 +385,7 @@ if (selected == "Breast Cancer Prediction"):
     st.title("Breast Cancer Prediction using Machine Learning")
     html_temp = """
     <div style ="background-color:yellow;padding:13px">
-    <h1 style ="color:black;text-align:center;">Streamlit Breast Cancer Prediction ML App </h1>
+    <h1 style ="color:black;text-align:center;">Breast Cancer Prediction using Machine Learning</h1>
     </div>
     """
       
@@ -558,10 +558,9 @@ if (selected == "Kidney Disease Prediction"):
         import streamlit as st
         
         # Set the page title
-        st.title("Kidney Disease Prediction using Machine Learning")
         html_temp = """
         <div style ="background-color:yellow;padding:13px">
-        <h1 style ="color:black;text-align:center;">Streamlit Kidney Disease Prediction ML App </h1>
+        <h1 style ="color:black;text-align:center;">Kidney Disease Prediction using Machine Learning </h1>
         </div>
         """
         # this line allows us to display the front end aspects we have 
