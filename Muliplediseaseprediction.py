@@ -227,11 +227,10 @@ if (selected == 'Heart Disease Prediction'):
     # creating a button for Prediction
     if st.button('Heart Disease Test Result'):
       if (
-        age == '' or sex == '' or cp == '' or trestbps == '' or chol == '' or fbs == '' or
-        restecg == '' or thalach == '' or exang == '' or oldpeak == '' or slope == '' or
-        ca == '' or thal == ''
+        age is None or sex is None or cp is None or trestbps is None or chol is None or fbs is None
+        or restecg is None or thalach is None or exang is None or oldpeak is None or slope is None or ca is None or thal is None
       ):
-          st.error("Please enter all the required parameters.")
+        st.error("Please enter all the required parameters.")
       else:
         heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
         if heart_prediction[0] == 1:
@@ -239,7 +238,6 @@ if (selected == 'Heart Disease Prediction'):
         else:
             heart_diagnosis = 'The person does not have any heart disease'
         st.success(heart_diagnosis)
-
       
 
   # Parkinson's Prediction Page
