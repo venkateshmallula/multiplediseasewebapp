@@ -45,7 +45,8 @@ if (selected == 'Home-Page'):
  st.write("   The Multiple Disease Prediction application is a machine learning-based project that aims to predict various diseases, including diabetes, heart disease, kidney disease, Parkinson's disease, and breast cancer. The application utilizes advanced machine learning algorithms such as Support Vector Machine (SVM), Logistic Regression, and TensorFlow with Keras.")
  st.write(" ")
  st.write("This application offers a user-friendly interface with five disease prediction options: heart disease, kidney disease, diabetes, Parkinson's disease, and breast cancer. Upon selecting a specific disease, the user is prompted to input the required parameters for the prediction model. Once the parameters are entered, the application utilizes the trained models to predict the disease outcome and presents the result to the user.")
-
+ st.write(" ")
+ st.write("The accuracy of the prediction models varies for each disease, with SVM achieving 78% accuracy for diabetes and 87% accuracy for Parkinson's disease, logistic regression achieving 85% accuracy for heart disease, and TensorFlow with Keras achieving 97% accuracy for kidney disease and 95% accuracy for breast cancer.")
   
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
