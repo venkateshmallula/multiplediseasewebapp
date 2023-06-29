@@ -279,7 +279,7 @@ if (selected == "Parkinsons Prediction"):
     
     features_names = ["age","blood pressure","specific gravity","albumin","sugar","red blood cells","pus cell","pus cell clumps","bacteria","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count","hypertension","diabetes mellitus","coronary artery disease","appetite","pedal edema","anemia"]
     if st.button('Show Feaatures'):
-        st.write(features_names)
+      st.write(features_names)
           
     input_value = st.text_input("Enter the features separated by Comma")
         
@@ -295,9 +295,9 @@ if (selected == "Parkinsons Prediction"):
        parkinsons_prediction = parkinsons_model.predict(input_list)
 
        if parkinsons_prediction[0] == 1:
-          parkinsons_diagnosis = "The person has Parkinson's disease"
+         parkinsons_diagnosis = "The person has Parkinson's disease"
        else:
-          parkinsons_diagnosis = "The person does not have Parkinson's disease"
+         parkinsons_diagnosis = "The person does not have Parkinson's disease"
 
        st.success(parkinsons_diagnosis)
       
