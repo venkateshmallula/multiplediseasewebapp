@@ -10,6 +10,9 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
+import numpy as np
+import base64
+
 
 # loading the saved models
 
