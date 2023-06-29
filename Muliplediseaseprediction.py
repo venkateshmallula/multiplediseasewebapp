@@ -227,9 +227,9 @@ if (selected == 'Heart Disease Prediction'):
     # creating a button for Prediction
     if st.button('Heart Disease Test Result'):
       if (
-        age == '0' or sex == '0' or cp == '0' or trestbps == '0' or chol == '0' or fbs == '0' or
-        restecg == '0' or thalach == '0' or exang == '0' or oldpeak == '0' or slope == '0' or
-        ca == '0' or thal == '0'
+        age == '' or sex == '' or cp == '' or trestbps == '' or chol == '' or fbs == '' or
+        restecg == '' or thalach == '' or exang == '' or oldpeak == '' or slope == '' or
+        ca == '' or thal == ''
       ):
           st.error("Please enter all the required parameters.")
       else:
