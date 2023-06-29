@@ -39,7 +39,7 @@ if (selected == 'Home'):
   </div>
   """
       
-   this line allows us to display the front end aspects we have 
+  # this line allows us to display the front end aspects we have 
   # defined in the above code
   st.markdown(html_temp, unsafe_allow_html = True)
   
