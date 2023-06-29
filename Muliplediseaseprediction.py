@@ -120,13 +120,13 @@ if (selected == 'Diabetes Prediction'):
     # creating a button for Prediction
     
     if st.button('Diabetes Test Result'):
-    if (
+      if (
         Pregnancies.strip() == "" or Glucose.strip() == "" or BloodPressure.strip() == ""
         or SkinThickness.strip() == "" or Insulin.strip() == "" or BMI.strip() == ""
         or DiabetesPedigreeFunction.strip() == "" or Age.strip() == ""
-    ):
+      ):
         st.error("Please enter all the required parameters.")
-    else:
+      else:
         diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
 
         if diab_prediction[0] == 1:
