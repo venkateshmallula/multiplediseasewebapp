@@ -269,9 +269,17 @@ if (selected == "Parkinsons Prediction"):
             unsafe_allow_html=True
             )
     add_bg_from_local('p4.jpg')
-    
-    # page title
-    st.title("Parkinson's Disease Prediction using ML")
+
+    # Set the page title
+    html_temp = """
+    <div style ="background-color:yellow;padding:13px">
+    <h1 style ="color:black;text-align:center;">Parkinson's Disease Prediction using ML</h1>
+    </div>
+    """
+      
+    # this line allows us to display the front end aspects we have 
+    # defined in the above code
+    st.markdown(html_temp, unsafe_allow_html = True)
 
     features_names = ['MDVP:Fo(Hz)', 'MDVP:Fhi(Hz)', 'MDVP:Flo(Hz)', 'MDVP:Jitter(%)', 'MDVP:Jitter(Abs)',
                   'MDVP:RAP', 'MDVP:PPQ', 'Jitter:DDP', 'MDVP:Shimmer', 'MDVP:Shimmer(dB)', 'Shimmer:APQ3',
@@ -382,7 +390,6 @@ if (selected == "Breast Cancer Prediction"):
     Y_pred = model.predict(X_test_std)
 
     # Set the page title
-    st.title("Breast Cancer Prediction using Machine Learning")
     html_temp = """
     <div style ="background-color:yellow;padding:13px">
     <h1 style ="color:black;text-align:center;">Breast Cancer Prediction using Machine Learning</h1>
