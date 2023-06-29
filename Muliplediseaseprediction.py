@@ -291,7 +291,7 @@ if (selected == "Parkinsons Prediction"):
     
     # creating a button for Prediction    
     if st.button("Parkinsons Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([[input_list]])                          
+        parkinsons_prediction = parkinsons_model.predict([input_list])                          
         
         if (parkinsons_prediction[0] == 1):
           parkinsons_diagnosis = "The person has Parkinson's disease"
