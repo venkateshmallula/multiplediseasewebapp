@@ -226,11 +226,18 @@ if (selected == 'Heart Disease Prediction'):
     
     # creating a button for Prediction
     if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                           
-        if (heart_prediction[0] == 1):
-          heart_diagnosis = 'The person is having heart disease'
+      if (
+        age == 0 or sex == 0 or cp == 0 or trestbps == 0 or chol == 0 or fbs == 0 or
+        restecg == 0 or thalach == 0 or exang == 0 or oldpeak == 0 or slope == 0 or
+        ca == 0 or thal == 0
+      ):
+          st.error("Please enter all the required parameters.")
+      else:
+        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
+        if heart_prediction[0] == 1:
+            heart_diagnosis = 'The person is having heart disease'
         else:
-          heart_diagnosis = 'The person does not have any heart disease'
+            heart_diagnosis = 'The person does not have any heart disease'
         st.success(heart_diagnosis)
 
       
