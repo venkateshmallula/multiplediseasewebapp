@@ -352,14 +352,27 @@ if (selected == "Parkinsons Prediction"):
     
     # creating a button for Prediction    
     if st.button("Parkinsons Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([[fo,fhi,flo,Jitter_percent,Jitter_Abs,RAP,PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
-        
-        if (parkinsons_prediction[0] == 1):
-          parkinsons_diagnosis = "The person has Parkinson's disease"
+        if (
+            fo.strip() == "" or fhi.strip() == "" or flo.strip() == ""
+            or Jitter_percent.strip() == "" or Jitter_Abs.strip() == ""
+            or RAP.strip() == "" or PPQ.strip() == "" or DDP.strip() == ""
+            or Shimmer.strip() == "" or Shimmer_dB.strip() == "" or APQ3.strip() == ""
+            or APQ5.strip() == "" or APQ.strip() == "" or DDA.strip() == "" or NHR.strip() == ""
+            or HNR.strip() == "" or RPDE.strip() == "" or DFA.strip() == "" or spread1.strip() == ""
+            or spread2.strip() == "" or D2.strip() == "" or PPE.strip() == ""
+        ):
+            st.error("Please enter all the required parameters.")
         else:
-          parkinsons_diagnosis = "The person does not have Parkinson's disease"
-        
-    st.success(parkinsons_diagnosis)
+            parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP,
+                                                                Shimmer, Shimmer_dB, APQ3, APQ5, APQ, DDA, NHR, HNR,
+                                                                RPDE, DFA, spread1, spread2, D2, PPE]])
+
+            if parkinsons_prediction[0] == 1:
+                parkinsons_diagnosis = "The person has Parkinson's disease"
+            else:
+                parkinsons_diagnosis = "The person does not have Parkinson's disease"
+
+            st.success(parkinsons_diagnosis)
       
      
   # Breast cancer Prediction Page
