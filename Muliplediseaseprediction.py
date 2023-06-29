@@ -212,21 +212,16 @@ if (selected == 'Heart Disease Prediction'):
     heart_diagnosis = ''
     
     # creating a button for Prediction
-    
     if st.button('Heart Disease Test Result'):
-      try:
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
+      heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
         
-        if (heart_prediction[0] == 1):
-          heart_diagnosis = 'The person is having heart disease'
-        else:
-          heart_diagnosis = 'The person does not have any heart disease'
-        st.success(heart_diagnosis)
-      except ValueError:
-                         st.error("Invalid input. Please enter numeric values for all features.")
+      if (heart_prediction[0] == 1):
+        heart_diagnosis = 'The person is having heart disease'
+      else:
+        heart_diagnosis = 'The person does not have any heart disease'
+      st.success(heart_diagnosis)
 
       
-        
 
   # Parkinson's Prediction Page
 if (selected == "Parkinsons Prediction"):
