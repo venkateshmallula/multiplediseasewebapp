@@ -181,68 +181,64 @@ if (selected == 'Heart Disease Prediction'):
     st.title('Heart Disease Prediction using ML')
     
     col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        age = st.number_input('Age')
-        
-    with col2:
-        sex = st.number_input('Sex')
-        
-    with col3:
-        cp = st.number_input('Chest Pain types')
-        
-    with col1:
-        trestbps = st.number_input('Resting Blood Pressure')
-        
-    with col2:
-        chol = st.number_input('Serum Cholestoral in mg/dl')
-        
-    with col3:
-        fbs = st.number_input('Fasting Blood Sugar > 120 mg/dl')
-        
-    with col1:
-        restecg = st.number_input('Resting Electrocardiographic results')
-        
-    with col2:
-        thalach = st.number_input('Maximum Heart Rate achieved')
-        
-    with col3:
-        exang = st.number_input('Exercise Induced Angina')
-        
-    with col1:
-        oldpeak = st.number_input('ST depression induced by exercise')
-        
-    with col2:
-        slope = st.number_input('Slope of the peak exercise ST segment')
-        
-    with col3:
-        ca = st.number_input('Major vessels colored by flourosopy')
-        
-    with col1:
-        thal = st.number_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
-        
-        
-     
-     
-    # code for Prediction
-    heart_diagnosis = ''
-    
-    # creating a button for Prediction
-    if st.button('Heart Disease Test Result'):
-      if (
-        age is None or sex is None or cp is None or trestbps is None or chol is None or fbs is None
-        or restecg is None or thalach is None or exang is None or oldpeak is None or slope is None or ca is None or thal is None
-      ):
-        st.error("Please enter all the required parameters.")
-      else:
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
-        if heart_prediction[0] == 1:
-            heart_diagnosis = 'The person is having heart disease'
-        else:
-            heart_diagnosis = 'The person does not have any heart disease'
-        st.success(heart_diagnosis)
-      
 
+    with col1:
+        age = st.number_input('Age', value=0)
+
+    with col2:
+        sex = st.number_input('Sex', value=0)
+
+    with col3:
+        cp = st.number_input('Chest Pain types', value=0)
+
+    with col1:
+        trestbps = st.number_input('Resting Blood Pressure', value=0)
+
+    with col2:
+        chol = st.number_input('Serum Cholestoral in mg/dl', value=0)
+
+    with col3:
+        fbs = st.number_input('Fasting Blood Sugar > 120 mg/dl', value=0)
+    
+    with col1:
+        restecg = st.number_input('Resting Electrocardiographic results', value=0)
+    
+    with col2:
+        thalach = st.number_input('Maximum Heart Rate achieved', value=0)
+  
+    with col3:
+        exang = st.number_input('Exercise Induced Angina', value=0)
+
+    with col1:
+        oldpeak = st.number_input('ST depression induced by exercise', value=0)
+
+    with col2:
+        slope = st.number_input('Slope of the peak exercise ST segment', value=0)
+
+    with col3:
+        ca = st.number_input('Major vessels colored by flourosopy', value=0)
+
+    with col1:
+        thal = st.number_input('thal: 0 = normal; 1 = fixed defect; 2 = reversible defect', value=0)
+
+    # Code for Prediction
+    heart_diagnosis = ''
+
+    # Creating a button for Prediction
+    if st.button('Heart Disease Test Result'):
+        if (
+            age == 0 or sex == 0 or cp == 0 or trestbps == 0 or chol == 0 or fbs == 0
+            or restecg == 0 or thalach == 0 or exang == 0 or oldpeak == 0 or slope == 0 or ca == 0 or thal == 0
+        ):
+            st.error("Please enter all the required parameters.")
+        else:
+            heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
+            if heart_prediction[0] == 1:
+                heart_diagnosis = 'The person is having heart disease'
+            else:
+                heart_diagnosis = 'The person does not have any heart disease'
+            st.success(heart_diagnosis)
+          
   # Parkinson's Prediction Page
 if (selected == "Parkinsons Prediction"):
   
