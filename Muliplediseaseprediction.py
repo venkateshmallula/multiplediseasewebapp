@@ -35,21 +35,38 @@ selected = option_menu(menu_title='Multiple Disease Prediction Web App',
                        orientation='horizontal')
 
 if (selected == 'Home-Page'):
- html_temp = """
- <div style ="background-color:yellow;padding:13px">
- <h1 style ="color:black;text-align:center;">Multiple Disease Prediction using Machine Learning and Streamlit </h1>
- </div>
- """
+    import base64
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+            st.markdown(
+            f"""
+            <style>
+            .stApp {{
+            background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
+            background-size: cover;
+            font-color: black;
+            }}
+            </style>
+            """,
+            unsafe_allow_html=True
+            )
+    add_bg_from_local('1.jpng')
+    html_temp = """
+    <div style ="background-color:yellow;padding:13px">
+    <h1 style ="color:black;text-align:center;">Multiple Disease Prediction using Machine Learning and Streamlit </h1>
+    </div>
+    """
       
- # this line allows us to display the front end aspects we have 
- # defined in the above code
- st.markdown(html_temp, unsafe_allow_html = True)
- st.write(" ")
- st.write("   The Multiple Disease Prediction application is a machine learning-based project that aims to predict various diseases, including diabetes, heart disease, kidney disease, Parkinson's disease, and breast cancer. The application utilizes advanced machine learning algorithms such as Support Vector Machine (SVM), Logistic Regression, and TensorFlow with Keras.")
- st.write(" ")
- st.write("This application offers a user-friendly interface with five disease prediction options: heart disease, kidney disease, diabetes, Parkinson's disease, and breast cancer. Upon selecting a specific disease, the user is prompted to input the required parameters for the prediction model. Once the parameters are entered, the application utilizes the trained models to predict the disease outcome and presents the result to the user.")
- st.write(" ")
- st.write("The accuracy of the prediction models varies for each disease, with SVM achieving 78% accuracy for diabetes and 87% accuracy for Parkinson's disease, logistic regression achieving 85% accuracy for heart disease, and TensorFlow with Keras achieving 97% accuracy for kidney disease and 95% accuracy for breast cancer.")
+    # this line allows us to display the front end aspects we have 
+    # defined in the above code
+    st.markdown(html_temp, unsafe_allow_html = True)
+    st.write(" ")
+    st.write("   The Multiple Disease Prediction application is a machine learning-based project that aims to predict various diseases, including diabetes, heart disease, kidney disease, Parkinson's disease, and breast cancer. The application utilizes advanced machine learning algorithms such as Support Vector Machine (SVM), Logistic Regression, and TensorFlow with Keras.")
+    st.write(" ")
+    st.write("This application offers a user-friendly interface with five disease prediction options: heart disease, kidney disease, diabetes, Parkinson's disease, and breast cancer. Upon selecting a specific disease, the user is prompted to input the required parameters for the prediction model. Once the parameters are entered, the application utilizes the trained models to predict the disease outcome and presents the result to the user.")
+    st.write(" ")
+    st.write("The accuracy of the prediction models varies for each disease, with SVM achieving 78% accuracy for diabetes and 87% accuracy for Parkinson's disease, logistic regression achieving 85% accuracy for heart disease, and TensorFlow with Keras achieving 97% accuracy for kidney disease and 95% accuracy for breast cancer.")
   
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
