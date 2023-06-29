@@ -84,9 +84,18 @@ if (selected == 'Diabetes Prediction'):
             unsafe_allow_html=True
             )
     add_bg_from_local('diabetes.jpg')
-    
-    # page title
-    st.title('Diabetes Prediction using ML')
+
+    # Set the page title
+    html_temp = """
+    <div style ="background-color:yellow;padding:13px">
+    <h1 style ="color:black;text-align:center;">Diabetes Prediction using Machine Learning</h1>
+    </div>
+    """
+      
+    # this line allows us to display the front end aspects we have 
+    # defined in the above code
+    st.markdown(html_temp, unsafe_allow_html = True)
+  
     
     
     # getting the input data from the user
@@ -177,8 +186,17 @@ if (selected == 'Heart Disease Prediction'):
             )
     add_bg_from_local('h1.jpg')
     
-    # page title
-    st.title('Heart Disease Prediction using ML')
+
+    # Set the page title
+    html_temp = """
+    <div style ="background-color:yellow;padding:13px">
+    <h1 style ="color:black;text-align:center;">Heart Disease Prediction using Machine Learning</h1>
+    </div>
+    """
+      
+    # this line allows us to display the front end aspects we have 
+    # defined in the above code
+    st.markdown(html_temp, unsafe_allow_html = True)
     
     col1, col2, col3 = st.columns(3)
 
@@ -273,7 +291,7 @@ if (selected == "Parkinsons Prediction"):
     # Set the page title
     html_temp = """
     <div style ="background-color:yellow;padding:13px">
-    <h1 style ="color:black;text-align:center;">Parkinson's Disease Prediction using ML</h1>
+    <h1 style ="color:black;text-align:center;">Parkinson's Disease Prediction using Machine Learning</h1>
     </div>
     """
       
