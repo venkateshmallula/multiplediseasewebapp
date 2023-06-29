@@ -276,29 +276,40 @@ if (selected == "Parkinsons Prediction"):
     
     # page title
     st.title("Parkinson's Disease Prediction using ML")
-    
-    features_names = ['MDVP:Fo(Hz)','MDVP:Fhi(Hz)','MDVP:Flo(Hz)','MDVP:Jitter(%)','MDVP:Jitter(Abs)','MDVP:RAP','MDVP:PPQ','Jitter:DDP','MDVP:Shimmer','MDVP:Shimmer(dB)','Shimmer:APQ3','Shimmer:APQ5','MDVP:APQ','Shimmer:DDA','NHR','HNR','RPDE','DFA','spread1','spread2','D2','PPE']
-    if st.button('Show Feaatures'):
+
+    features_names = ['MDVP:Fo(Hz)', 'MDVP:Fhi(Hz)', 'MDVP:Flo(Hz)', 'MDVP:Jitter(%)', 'MDVP:Jitter(Abs)',
+                  'MDVP:RAP', 'MDVP:PPQ', 'Jitter:DDP', 'MDVP:Shimmer', 'MDVP:Shimmer(dB)', 'Shimmer:APQ3',
+                  'Shimmer:APQ5', 'MDVP:APQ', 'Shimmer:DDA', 'NHR', 'HNR', 'RPDE', 'DFA', 'spread1', 'spread2',
+                  'D2', 'PPE']
+  
+    if st.button('Show Features'):
       st.write(features_names)
 
-    input_value = st.text_input("Enter the features separated by Comma")
+    input_value = st.text_input("Enter the features separated by comma")
 
-    input_list = input_value.split(',')  
-    
-    
-    # code for Prediction
+    input_list = input_value.split(',')
+
+    # Code for Prediction
     parkinsons_diagnosis = ''
-    
-    # creating a button for Prediction    
+
+    # Creating a button for Prediction
     if st.button("Parkinsons Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([input_list])                          
-        
-        if (parkinsons_prediction[0] == 1):
-          parkinsons_diagnosis = "The person has Parkinson's disease"
+        if len(input_list) != len(features_names):
+            st.error("Please enter all the required features.")
+    else:
+        # Convert input values to appropriate data types (float)
+        input_list = [float(value.strip()) for value in input_list]
+        input_array = np.array(input_list).reshape(1, -1)
+
+        parkinsons_prediction = parkinsons_model.predict(input_array)
+
+        if parkinsons_prediction[0] == 1:
+            parkinsons_diagnosis = "The person has Parkinson's disease"
         else:
-          parkinsons_diagnosis = "The person does not have Parkinson's disease"
-        
-    st.success(parkinsons_diagnosis)
+            parkinsons_diagnosis = "The person does not have Parkinson's disease"
+
+        st.success(parkinsons_diagnosis)
+ 
       
      
   # Breast cancer Prediction Page
