@@ -42,7 +42,7 @@ if (selected == 'Home-Page'):
  # this line allows us to display the front end aspects we have 
  # defined in the above code
  st.markdown(html_temp, unsafe_allow_html = True)
- st.write("The Multiple Disease Prediction application is a machine learning-based project that aims to predict various diseases, including diabetes, heart disease, kidney disease, Parkinson's disease, and breast cancer. The application utilizes advanced machine learning algorithms such as Support Vector Machine (SVM), Logistic Regression, and TensorFlow with Keras.")
+ st.text("    The Multiple Disease Prediction application is a machine learning-based project that aims to predict various diseases, including diabetes, heart disease, kidney disease, Parkinson's disease, and breast cancer. The application utilizes advanced machine learning algorithms such as Support Vector Machine (SVM), Logistic Regression, and TensorFlow with Keras.")
   
   
 # Diabetes Prediction Page
