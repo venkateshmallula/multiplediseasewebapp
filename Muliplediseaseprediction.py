@@ -54,19 +54,6 @@ if (selected == 'Home-Page'):
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
     
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        
-        st.write("")
-
-    with col2:
-        
-       img = Image.open("d1.jpg")
-       st.image(img,width=150)
-    with col3:
-        
-        st.write("")
     import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
@@ -95,6 +82,10 @@ if (selected == 'Diabetes Prediction'):
     # this line allows us to display the front end aspects we have 
     # defined in the above code
     st.markdown(html_temp, unsafe_allow_html = True)
+        
+    img = Image.open("d1.jpg")
+    st.image(img,width=150)
+
   
     
     
