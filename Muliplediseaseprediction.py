@@ -296,19 +296,19 @@ if (selected == "Parkinsons Prediction"):
     if st.button("Parkinsons Test Result"):
         if len(input_list) != len(features_names):
             st.error("Please enter all the required features.")
-    else:
-        # Convert input values to appropriate data types (float)
-        input_list = [float(value.strip()) for value in input_list]
-        input_array = np.array(input_list).reshape(1, -1)
-
-        parkinsons_prediction = parkinsons_model.predict(input_array)
-
-        if parkinsons_prediction[0] == 1:
-            parkinsons_diagnosis = "The person has Parkinson's disease"
         else:
-            parkinsons_diagnosis = "The person does not have Parkinson's disease"
+        # Convert input values to appropriate data types (float)
+            input_list = [float(value.strip()) for value in input_list]
+            input_array = np.array(input_list).reshape(1, -1)
 
-        st.success(parkinsons_diagnosis)
+            parkinsons_prediction = parkinsons_model.predict(input_array)
+
+            if parkinsons_prediction[0] == 1:
+                 parkinsons_diagnosis = "The person has Parkinson's disease"
+            else:
+                 parkinsons_diagnosis = "The person does not have Parkinson's disease"
+
+            st.success(parkinsons_diagnosis)
  
       
      
