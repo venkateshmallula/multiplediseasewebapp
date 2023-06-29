@@ -51,7 +51,7 @@ if (selected == 'Home-Page'):
             """,
             unsafe_allow_html=True
             )
-    add_bg_from_local('1.png')
+    add_bg_from_local('MA.png')
     html_temp = """
     <div style ="background-color:yellow;padding:13px">
     <h1 style ="color:black;text-align:center;">Multiple Disease Prediction using Machine Learning and Streamlit </h1>
