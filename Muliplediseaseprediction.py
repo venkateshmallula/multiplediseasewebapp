@@ -294,12 +294,12 @@ if (selected == "Parkinsons Prediction"):
     if st.button("Parkinsons Test Result"):
        parkinsons_prediction = parkinsons_model.predict(input_list)
 
-        if parkinsons_prediction[0] == 1:
-            parkinsons_diagnosis = "The person has Parkinson's disease"
-        else:
-            parkinsons_diagnosis = "The person does not have Parkinson's disease"
+       if parkinsons_prediction[0] == 1:
+          parkinsons_diagnosis = "The person has Parkinson's disease"
+       else:
+          parkinsons_diagnosis = "The person does not have Parkinson's disease"
 
-        st.success(parkinsons_diagnosis)
+       st.success(parkinsons_diagnosis)
       
      
   # Breast cancer Prediction Page
