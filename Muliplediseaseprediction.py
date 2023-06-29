@@ -53,8 +53,9 @@ if (selected == 'Home-Page'):
   
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
-    
-    import base64
+  
+  #for adding background-image  
+  import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
             encoded_string = base64.b64encode(image_file.read())
@@ -82,6 +83,8 @@ if (selected == 'Diabetes Prediction'):
     # this line allows us to display the front end aspects we have 
     # defined in the above code
     st.markdown(html_temp, unsafe_allow_html = True)
+    st.write(" ")
+    st.write(" ")
         
     img = Image.open("d1.jpg")
     st.image(img,width=150)
@@ -143,22 +146,8 @@ if (selected == 'Diabetes Prediction'):
 
 # Heart Disease Prediction Page
 if (selected == 'Heart Disease Prediction'):
-    
-    
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        
-        st.write("")
-
-    with col2:
-        
-        img = Image.open("h6.jpg")
-        st.image(img,width=150)
-    with col3:
-        
-        st.write("")
-    #for adding Image
+  
+    #for adding background-image
     import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
@@ -188,6 +177,12 @@ if (selected == 'Heart Disease Prediction'):
     # this line allows us to display the front end aspects we have 
     # defined in the above code
     st.markdown(html_temp, unsafe_allow_html = True)
+
+    st.write(" ")
+    st.write(" ")
+    img = Image.open("h6.jpg")
+    st.image(img,width=150)
+  
     
     col1, col2, col3 = st.columns(3)
 
@@ -245,22 +240,10 @@ if (selected == 'Heart Disease Prediction'):
                 heart_diagnosis = 'The person does not have any heart disease'
             st.success(heart_diagnosis)
           
-  # Parkinson's Prediction Page
+# Parkinson's Prediction Page
 if (selected == "Parkinsons Prediction"):
   
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        
-        st.write("")
-
-    with col2:
-        
-       img = Image.open("p1.jpg")
-       st.image(img,width=150)
-    with col3:
-        
-        st.write("")
+    #for adding background-image  
     import base64
     def add_bg_from_local(image_file):
         with open(image_file, "rb") as image_file:
@@ -289,6 +272,10 @@ if (selected == "Parkinsons Prediction"):
     # this line allows us to display the front end aspects we have 
     # defined in the above code
     st.markdown(html_temp, unsafe_allow_html = True)
+    st.write("")
+    st.write("")
+    img = Image.open("p1.jpg")
+    st.image(img,width=150)
 
     features_names = ['MDVP:Fo(Hz)', 'MDVP:Fhi(Hz)', 'MDVP:Flo(Hz)', 'MDVP:Jitter(%)', 'MDVP:Jitter(Abs)',
                   'MDVP:RAP', 'MDVP:PPQ', 'Jitter:DDP', 'MDVP:Shimmer', 'MDVP:Shimmer(dB)', 'Shimmer:APQ3',
